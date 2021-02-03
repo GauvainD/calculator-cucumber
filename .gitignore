@@ -5,3 +5,6 @@
 build
 .gradle
 .github
+gradle
+gradlew
+gradlew.bat

@@ -17,7 +17,8 @@ This repository contains Java 11 code for computing arithmetic expressions. It i
 
 *  You will need to have a running version of Java 11 on your machine in order to be able to compile and execute this code.
 *  You will also need to have a running version of Gradle, since this project
-   is accompanied by a build.gradle file so that it can be installed, compiled, tested and run using Maven.
+   is accompanied by a build.gradle file so that it can be installed, compiled,
+   tested and run using Gradle. You need at least version 6.4.
 
 ### Installation and testing instructions
 
