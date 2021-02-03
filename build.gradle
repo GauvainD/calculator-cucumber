@@ -1,0 +1,50 @@
+plugins {
+
+    // Utilisation du plugin pour compiler du Java
+    id 'java'
+
+    // plugin pour exécuter du Java
+    id 'application'
+}
+
+application {
+
+    // Configure la classe principale pour le plugin application
+    mainClass = 'calculator.Main'
+}
+
+jar {
+
+    // Configure la tâche jar pour créer un jar exécutable
+    manifest {
+        attributes 'Main-Class': 'calculator.Main'
+    }
+
+    // Ajoute chaque dépendance au niveau compilation à l'archive .jar
+    from{
+        configurations.compileClasspath.collect{ zipTree(it) }
+    }
+}
+
+repositories {
+    //Utilise le dépôt bintray.com/bintray/jcenter
+    jcenter()
+}
+
+dependencies {
+
+    // Librairie pour les tests.
+    // format : 'groupe:nom:version'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.2'
+
+    // Libraririe pour exécuter les tests unitaires.
+    // Uniquement nécessaire pour l'exécution des tests
+    // et pas pour la compilation.
+    testRuntimeOnly'org.junit.jupiter:junit-jupiter-engine:5.6.2'
+}
+
+test {
+
+    // Indique à Gradle qu'il faut utilser JUnit pour les tests.
+    useJUnitPlatform()
+}
